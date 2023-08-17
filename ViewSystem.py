@@ -2,18 +2,25 @@ import customtkinter as CTK
 from tkinter import CENTER  
 from threading import Thread
 from PIL import Image, ImageTk
+import time
 
 def main():
     def LoadFrame_anim():
         while True:
-            anim_label.configure(image0)
-            anim_label.configure(image1)
-            anim_label.configure(image2)
-            anim_label.configure(image3)
-            anim_label.configure(image4)
-            anim_label.configure(image5)
-            anim_label.configure(image6)
-
+            
+            anim_label.configure(image = image1)
+            time.sleep(0.1)
+            anim_label.configure(image = image2)
+            time.sleep(0.1)
+            anim_label.configure(image = image3)
+            time.sleep(0.1)
+            anim_label.configure(image = image4)
+            time.sleep(0.1)
+            anim_label.configure(image = image5)
+            time.sleep(0.1)
+            anim_label.configure(image = image6)
+            time.sleep(0.1)
+            
     MainWindow = CTK.CTk()
     MainWindow.geometry("300x768")
 
@@ -42,7 +49,7 @@ def main():
     anim_label.place(relx=0.5, rely=0.5, anchor=CENTER)
 
     t1 = Thread(target=LoadFrame_anim)
-    t1.run()
+    t1.start()
 
     MainWindow.mainloop()
 
